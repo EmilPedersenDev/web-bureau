@@ -1,32 +1,44 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <app-navigation
+      :class="{ 'start-nav': isStartSite }"
+      :isStartSite="isStartSite"
+    ></app-navigation>
+    <!-- <div class="container-fluid"> -->
+    <hero-banner v-show="isStartSite"></hero-banner>
+    <router-view />
+    <!-- </div> -->
   </div>
 </template>
 
+<script>
+import AppNavigation from "./components/AppNavigation";
+import HeroBanner from "./components/HeroBanner";
+
+export default {
+  name: "app",
+  components: {
+    AppNavigation,
+    HeroBanner
+  },
+  computed: {
+    isStartSite() {
+      return this.$route.path === "/";
+    }
+  }
+};
+</script>
+
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  .start-nav {
+    position: absolute;
+    color: #fff;
   }
 }
 </style>
