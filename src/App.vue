@@ -4,22 +4,23 @@
       :class="{ 'start-nav': isStartSite }"
       :isStartSite="isStartSite"
     ></app-navigation>
-    <!-- <div class="container-fluid"> -->
     <hero-banner v-show="isStartSite"></hero-banner>
     <router-view />
-    <!-- </div> -->
+    <fotter></fotter>
   </div>
 </template>
 
 <script>
 import AppNavigation from "./components/AppNavigation";
 import HeroBanner from "./components/HeroBanner";
+import Fotter from "./components/Fotter";
 
 export default {
   name: "app",
   components: {
     AppNavigation,
-    HeroBanner
+    HeroBanner,
+    Fotter
   },
   computed: {
     isStartSite() {
@@ -31,11 +32,6 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-
   .start-nav {
     position: absolute;
     color: #fff;

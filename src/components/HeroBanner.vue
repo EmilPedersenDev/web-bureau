@@ -30,34 +30,6 @@ export default {
   height: 722px;
   width: 100%;
   .background {
-    background-image: url("https://www.platinumseed.com/img/bg-home-01-large.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    .hero-text {
-      margin: 0 100px;
-      display: flex;
-      height: 93%;
-      justify-content: center;
-      flex-direction: column;
-      h1 {
-        font-size: 4rem;
-        font-weight: 800;
-        margin-top: 70px;
-      }
-      h4 {
-        font-weight: 400;
-        @media (min-width: 768px) {
-          width: 70%;
-        }
-        @media (min-width: 900px) {
-          width: 50%;
-        }
-      }
-    }
     .arrow-scroll-down {
       text-align: center;
       &:hover {
