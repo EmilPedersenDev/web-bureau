@@ -12,7 +12,7 @@
         </h4>
       </div>
       <div class="arrow-scroll-down">
-        <i class="fas fa-chevron-down arrow"></i>
+        <i class="fas fa-chevron-down arrow" @click="scrollToView"></i>
       </div>
     </div>
   </div>
@@ -20,7 +20,13 @@
 
 <script>
 export default {
-  name: "hero-banner"
+  name: "hero-banner",
+  methods: {
+    scrollToView() {
+      let scrollToDiv = document.getElementById("slide-2");
+      return scrollToDiv.scrollIntoView({ behavior: "smooth" });
+    }
+  }
 };
 </script>
 
