@@ -12,17 +12,24 @@
         <h4>We created an experiential activation for Glenfiddich Whisky.</h4>
       </div>
     </advertising-banner>
+    <inspire-banner
+      :leftImg="true"
+      imgSrc="https://titusklein.com/user/pages/01.home/home-image1.jpg"
+      imgSrc2="https://titusklein.com/user/pages/01.home/home-image2-2.jpg"
+    ></inspire-banner>
   </div>
 </template>
 
 <script>
-import AdvertisingBanner from "../components/AdvertisingBanner";
+import AdvertisingBanner from "../components/Banners/AdvertisingBanner";
+import InspireBanner from "../components/Banners/InspireBanner";
 import globalMixin from "../common/globalMixin";
 export default {
   name: "Home",
   mixins: [globalMixin],
   components: {
-    AdvertisingBanner
+    AdvertisingBanner,
+    InspireBanner
   },
   methods: {
     setBackgroundImg(id) {

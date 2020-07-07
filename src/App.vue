@@ -12,7 +12,7 @@
 
 <script>
 import AppNavigation from "./components/AppNavigation";
-import HeroBanner from "./components/HeroBanner";
+import HeroBanner from "./components/Banners/HeroBanner";
 import Fotter from "./components/Fotter";
 
 export default {

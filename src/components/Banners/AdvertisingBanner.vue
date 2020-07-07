@@ -1,9 +1,9 @@
 <template>
-  <section :id="section">
+  <banner :section="section" size="md">
     <div class="background" :class="section" :style="getBackgroundUrl">
       <slot name="background-text"></slot>
     </div>
-  </section>
+  </banner>
 </template>
 
 <script>
@@ -41,7 +41,6 @@ export default {
 
 <style lang="scss" scoped>
 .background {
-  height: 772px;
   &.slide-2 {
     z-index: 6;
   }
