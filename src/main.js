@@ -7,6 +7,7 @@ Vue.config.productionTip = false;
 
 import "./style/main.scss";
 import "./common/Index";
+import "./style/inspire-banner.scss";
 
 new Vue({
   router,

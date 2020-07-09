@@ -1,0 +1,139 @@
+.banner {
+  width: 100%;
+  height: 100%;
+  .inspire-banner-wrapper {
+    height: inherit;
+    width: inherit;
+    color: black;
+    &.background-wrapper {
+      background: #f9f8f5;
+    }
+    &.row {
+      margin: 0;
+      padding: 86px 32px;
+    }
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+
+    .left-content {
+      @media (max-width: 992px) {
+        margin-bottom: 20px;
+      }
+
+      .left-inside-text {
+        margin: 0 auto;
+        @media (min-width: 992px) {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          padding-left: 20px;
+        }
+        @media (min-width: 1300px) {
+          right: 60px;
+        }
+      }
+
+      .left-inside-img {
+        margin: 0 auto;
+        @media (min-width: 992px) {
+          float: right;
+          padding: 20px 20px 10px 0px;
+        }
+
+        @media (min-width: 1126px) {
+          padding-right: 40px;
+        }
+      }
+    }
+
+    .whole-page-text {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .right-content {
+      .right-inside-text {
+        margin: 0 auto;
+        @media (min-width: 992px) {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          padding-left: 20px;
+        }
+      }
+
+      .right-inside-img {
+        margin: 0 auto;
+        @media (min-width: 992px) {
+          margin: 0;
+          padding: 20px 20px 10px 0px;
+        }
+
+        @media (min-width: 1126px) {
+          padding-right: 40px;
+        }
+      }
+    }
+  }
+}
+
+.inside-text-content {
+  @media (min-width: 1060px) {
+    font-size: 1rem;
+  }
+  font-size: 0.875rem;
+  line-height: 2;
+  -webkit-font-smoothing: antialiased;
+  &.half-page-text {
+    margin: 0 auto;
+    max-width: 460px;
+    @media (min-width: 992px) {
+      max-width: 540px;
+    }
+  }
+}
+
+.eyebrow {
+  letter-spacing: 0.4em;
+  font-size: 0.6875rem;
+}
+
+h1,
+p {
+  @media (min-width: 1200px) {
+    margin-bottom: 20px;
+  }
+  margin-bottom: 12px;
+}
+h1 {
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 1.25rem;
+  @media (min-width: 992px) {
+    font-size: 1.5rem;
+  }
+  @media (min-width: 1040px) {
+    font-size: 2rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 2.25rem;
+  }
+}
+
+.inside-img {
+  height: 100%;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.dynamic-placement-content {
+  max-width: 460px;
+  @media (min-width: 992px) {
+    max-width: 540px;
+  }
+}

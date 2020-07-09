@@ -2,14 +2,14 @@
   <div class="hero-container">
     <div class="background">
       <div class="hero-text">
-        <h1>
+        <h1 class="main-header-mobile-text">
           We are <br />
           Digital Specialists
         </h1>
-        <h4>
+        <h2>
           We use insight, technology and creativity to keep brands and
           businesses relevant in an ever-changing world.
-        </h4>
+        </h2>
       </div>
       <div class="arrow-scroll-down">
         <i class="fas fa-chevron-down arrow" @click="scrollToView"></i>

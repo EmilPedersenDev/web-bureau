@@ -1,5 +1,5 @@
 <template>
-  <banner :section="section" size="md">
+  <banner :section="section" :size="bannerSize">
     <div class="background" :class="section" :style="getBackgroundUrl">
       <slot name="background-text"></slot>
     </div>
@@ -17,23 +17,34 @@ export default {
       type: String
     }
   },
-  created() {
-    // window.onload = event => {
-    //   var body = document.body,
-    //     html = document.documentElement;
-    //   var height = Math.max(
-    //     body.scrollHeight,
-    //     body.offsetHeight,
-    //     html.clientHeight,
-    //     html.scrollHeight,
-    //     html.offsetHeight
-    //   );
-    //   console.log("page is fully loaded", height);
-    // };
+  data() {
+    return {
+      windowWdith: 0,
+      bannerSize: "md"
+    };
+  },
+  watch: {
+    windowWdith(newWidth, oldWidth) {
+      if (newWidth >= 768) {
+        this.bannerSize = "md";
+      } else {
+        this.bannerSize = "sm";
+      }
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener("resize", this.onResize);
+    });
   },
   computed: {
     getBackgroundUrl() {
       return `background-image: url(${this.backgroundUrl})`;
+    }
+  },
+  methods: {
+    onResize() {
+      this.windowWdith = window.innerWidth;
     }
   }
 };

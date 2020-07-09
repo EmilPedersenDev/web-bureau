@@ -74,6 +74,7 @@ export default {
 .st-button {
   background-color: #ffffff;
   transition: background-color 0.3s ease;
+  border: none;
 
   padding: 0px 14px;
   height: 34px;
@@ -113,11 +114,6 @@ export default {
     height: 48px;
     margin-top: 18px;
     padding: 12px 32px;
-    border-width: 2px;
-
-    &:hover {
-      border-width: 2px;
-    }
   }
 
   &.lg {
@@ -130,11 +126,6 @@ export default {
     width: 155px;
     margin-top: 36px;
     padding: 6px 16px;
-    border-width: 2px;
-
-    &:hover {
-      border-width: 2px;
-    }
   }
 
   &.block {
