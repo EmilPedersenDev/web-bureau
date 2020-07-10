@@ -20,11 +20,15 @@ export default {
     },
     screenHeight: {
       type: Number
+    },
+    loaded: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     classList() {
-      return ["banner", this.size];
+      return ["banner", this.size, !this.loaded ? "loading-background" : ""];
     },
     determineScreenHeight() {
       return `height: ${this.screenHeight}px`;
@@ -47,6 +51,13 @@ export default {
   }
   &.auto {
     height: 100%;
+  }
+  &.loading-background {
+    position: relative;
+    background: #f9f8f5;
+    &:nth-child(odd) {
+      background: #fff;
+    }
   }
 }
 </style>

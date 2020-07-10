@@ -4,12 +4,18 @@
       <div class="hero-text" slot="background-text">
         <h1 class="main-header-mobile-text">Russian Bear</h1>
         <h2>An Integrated Digital Campaign for Russian Bear.</h2>
+        <router-link slot="router-link-bank" to="/" class="top-link"
+          >{{ routerLinkText }}
+        </router-link>
       </div>
     </advertising-banner>
     <advertising-banner :backgroundUrl="setBackgroundImg(3)" section="slide-3">
       <div class="hero-text" slot="background-text">
         <h1 class="main-header-mobile-text">Voice Visualiser</h1>
         <h2>We created an experiential activation for Glenfiddich Whisky.</h2>
+        <router-link slot="router-link-bank" to="/" class="top-link"
+          >{{ routerLinkText }}
+        </router-link>
       </div>
     </advertising-banner>
     <inspire-banner
@@ -56,6 +62,11 @@ export default {
   components: {
     AdvertisingBanner,
     InspireBanner
+  },
+  data() {
+    return {
+      routerLinkText: "See Our Work"
+    };
   },
   methods: {
     setBackgroundImg(id) {

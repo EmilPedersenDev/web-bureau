@@ -1,5 +1,5 @@
 <template>
-  <banner section="slide-4" size="auto">
+  <banner section="slide-4" size="auto" :loaded="true">
     <div
       class="inspire-banner-wrapper row"
       :class="{ 'background-wrapper': background }"

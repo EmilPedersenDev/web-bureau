@@ -1,6 +1,16 @@
 <template>
-  <div class="hero-container" :style="`height: ${screenHeight}px`">
-    <div class="background">
+  <div
+    class="hero-container"
+    :style="`height: ${screenHeight}px`"
+    :class="{ 'loading-background': !loaded }"
+  >
+    <div class="sk-folding-cube" v-show="!loaded">
+      <div class="sk-cube1 sk-cube"></div>
+      <div class="sk-cube2 sk-cube"></div>
+      <div class="sk-cube4 sk-cube"></div>
+      <div class="sk-cube3 sk-cube"></div>
+    </div>
+    <div class="background slide-1" v-show="loaded">
       <div class="hero-text">
         <h1 class="main-header-mobile-text">
           We are <br />
@@ -23,11 +33,26 @@ export default {
   name: "hero-banner",
   data() {
     return {
-      screenHeight: 0
+      screenHeight: 0,
+      loaded: false,
+      backgroundUrl: "https://www.platinumseed.com/img/bg-home-01-large.jpg"
     };
   },
   mounted() {
     this.screenHeight = window.innerHeight;
+
+    let bannerDiv = document.getElementsByClassName("slide-1")[0];
+
+    this.loaded = false;
+    var image = new Image();
+    let _this = this;
+
+    image.onload = function() {
+      _this.loaded = true;
+      bannerDiv.style.backgroundImage = "url('" + _this.backgroundUrl + "')";
+    };
+    image.src = this.backgroundUrl;
+
     this.$nextTick(() => {
       window.addEventListener("resize", this.onResize);
     });
