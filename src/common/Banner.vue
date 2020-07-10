@@ -1,5 +1,5 @@
 <template>
-  <section :class="classList" :id="section">
+  <section :class="classList" :id="section" :style="determineScreenHeight">
     <slot></slot>
   </section>
 </template>
@@ -17,11 +17,17 @@ export default {
     },
     section: {
       type: String
+    },
+    screenHeight: {
+      type: Number
     }
   },
   computed: {
     classList() {
       return ["banner", this.size];
+    },
+    determineScreenHeight() {
+      return `height: ${this.screenHeight}px`;
     }
   }
 };
@@ -29,20 +35,17 @@ export default {
 
 <style lang="scss" scoped>
 .banner {
+  width: 100%;
   &.sm {
-    width: 100%;
     height: 522px;
   }
   &.md {
-    width: 100%;
     height: 772px;
   }
   &.lg {
-    width: 100%;
     height: 922px;
   }
   &.auto {
-    width: 100%;
     height: 100%;
   }
 }

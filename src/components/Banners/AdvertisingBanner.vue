@@ -1,5 +1,5 @@
 <template>
-  <banner :section="section" :size="bannerSize">
+  <banner :section="section" :screenHeight="screenHeight">
     <div class="background" :class="section" :style="getBackgroundUrl">
       <slot name="background-text"></slot>
     </div>
@@ -19,20 +19,16 @@ export default {
   },
   data() {
     return {
-      windowWdith: 0,
-      bannerSize: "md"
+      screenHeight: 0
     };
   },
   watch: {
-    windowWdith(newWidth, oldWidth) {
-      if (newWidth >= 768) {
-        this.bannerSize = "md";
-      } else {
-        this.bannerSize = "sm";
-      }
+    screenHeight(val) {
+      return val;
     }
   },
   mounted() {
+    this.screenHeight = window.innerHeight;
     this.$nextTick(() => {
       window.addEventListener("resize", this.onResize);
     });
@@ -44,7 +40,7 @@ export default {
   },
   methods: {
     onResize() {
-      this.windowWdith = window.innerWidth;
+      this.screenHeight = window.innerHeight;
     }
   }
 };

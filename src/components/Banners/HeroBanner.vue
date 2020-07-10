@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-container">
+  <div class="hero-container" :style="`height: ${screenHeight}px`">
     <div class="background">
       <div class="hero-text">
         <h1 class="main-header-mobile-text">
@@ -21,10 +21,29 @@
 <script>
 export default {
   name: "hero-banner",
+  data() {
+    return {
+      screenHeight: 0
+    };
+  },
+  mounted() {
+    this.screenHeight = window.innerHeight;
+    this.$nextTick(() => {
+      window.addEventListener("resize", this.onResize);
+    });
+  },
+  watch: {
+    screenHeight(val) {
+      return val;
+    }
+  },
   methods: {
     scrollToView() {
       let scrollToDiv = document.getElementById("slide-2");
       return scrollToDiv.scrollIntoView({ behavior: "smooth" });
+    },
+    onResize() {
+      this.screenHeight = window.innerHeight;
     }
   }
 };
@@ -33,7 +52,6 @@ export default {
 <style lang="scss" scoped>
 .hero-container {
   color: #fff;
-  height: 722px;
   width: 100%;
   .background {
     .arrow-scroll-down {
