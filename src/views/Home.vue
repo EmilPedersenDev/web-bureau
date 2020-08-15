@@ -4,7 +4,7 @@
       <div class="hero-text" slot="background-text">
         <h1 class="main-header-mobile-text">Russian Bear</h1>
         <h2>An Integrated Digital Campaign for Russian Bear.</h2>
-        <router-link slot="router-link-bank" to="/" class="top-link"
+        <router-link slot="router-link-bank" to="/russian-bear" class="top-link"
           >{{ routerLinkText }}
         </router-link>
       </div>
@@ -13,7 +13,7 @@
       <div class="hero-text" slot="background-text">
         <h1 class="main-header-mobile-text">Voice Visualiser</h1>
         <h2>We created an experiential activation for Glenfiddich Whisky.</h2>
-        <router-link slot="router-link-bank" to="/" class="top-link"
+        <router-link slot="router-link-bank" to="/glenfiddich" class="top-link"
           >{{ routerLinkText }}
         </router-link>
       </div>

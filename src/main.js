@@ -8,6 +8,8 @@ Vue.config.productionTip = false;
 import "./style/main.scss";
 import "./common/Index";
 import "./style/inspire-banner.scss";
+import "./style/spinner.scss";
+import "./style/images.scss";
 
 new Vue({
   router,
