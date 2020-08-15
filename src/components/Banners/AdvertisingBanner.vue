@@ -76,6 +76,8 @@ export default {
 
 <style lang="scss" scoped>
 .background {
+  animation: fadein 2s;
+
   &.slide-2 {
     z-index: 6;
   }

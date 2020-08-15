@@ -79,6 +79,9 @@ export default {
   color: #fff;
   width: 100%;
   .background {
+    &.slide-1 {
+      animation: fadein 2s;
+    }
     .arrow-scroll-down {
       text-align: center;
       &:hover {
