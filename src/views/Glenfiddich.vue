@@ -24,20 +24,17 @@
       <div class="row">
         <h1 class="information col-12 col-xl-2">Info</h1>
         <p class="text col-12 col-xl-8 inside-text-content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ratione
-          dolores facilis dolorum libero, provident perspiciatis magni
-          necessitatibus dolorem. Illo soluta unde labore eaque perferendis
-          blanditiis error porro asperiores sit! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Iste ratione dolores facilis dolorum
-          libero, provident perspiciatis magni necessitatibus dolorem. Illo
-          soluta unde labore eaque perferendis blanditiis error porro asperiores
-          sit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-          ratione dolores facilis dolorum libero, provident perspiciatis magni
-          necessitatibus dolorem. Illo soluta unde labore eaque perferendis
-          blanditiis error porro asperiores sit!
+          The world’s most awarded single malt, Glenfiddich, has always been a
+          pioneer. Glenfiddich demonstrated its independent spirit yet again,
+          launching The Glenfiddich Independent Bar in Johannesburg. However,
+          the intention was so much more than just another bar. It was about
+          creating a space which would redefine the whisky-drinking experience.
+          We developed an interactive sound installation, which utilised
+          biometric technology tocreate unique whisky cocktails based on the
+          characteristics of the individual voice.
         </p>
         <p class="type col-12 col-xl-2 inside-text-content eyebrow">
-          Cms, Development
+          Experiential, Development, CRM
         </p>
       </div>
     </template>

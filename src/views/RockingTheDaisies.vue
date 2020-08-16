@@ -33,7 +33,7 @@
           creation of ‘FOMO’ or the ‘fear of missing out’.
         </p>
         <p class="type col-12 col-xl-2 inside-text-content eyebrow">
-          Cms, Development
+          Content Creation, Social Media
         </p>
       </div>
     </template>

@@ -10,25 +10,31 @@
       </h2>
     </div>
     <div class="work-examples">
-      <div class="work-examples-wrapper row">
-        <div class="work-card col-12 col-md-6">
-          <img
-            src="https://api.platinumseed.com/wp-content/uploads/2017/08/Work_RussianBear_Cover-1800x1022.jpg"
-            alt=""
-          />
+      <div class="work-examples-wrapper row img-wrapper-mobile-compatible">
+        <div
+          class="work-card col-12 col-md-6"
+          v-for="(item, id) in allWork"
+          :key="id"
+          id="work-img-display"
+        >
+          <router-link :to="item.route">
+            <img
+              :src="item.imgUrl"
+              alt=""
+              v-show="loaded"
+              @load="isImgLoaded"
+            />
+          </router-link>
+          <spinner
+            v-show="!loaded"
+            :loaded="loaded"
+            :screenHeight="offsetImgHeight"
+          ></spinner>
           <div class="work-card-info">
-            <h1>Russian Bear</h1>
-            <h2>Integrated Digital Campaign</h2>
-          </div>
-        </div>
-        <div class="work-card col-12 col-md-6">
-          <img
-            src="https://api.platinumseed.com/wp-content/uploads/2017/08/Work_Glenfiddich_Cover-1800x1022.jpg"
-            alt=""
-          />
-          <div class="work-card-info">
-            <h1>Glenfiddich Whisky</h1>
-            <h2>Experiential</h2>
+            <router-link :to="item.route">
+              <h1>{{ item.name }}</h1>
+              <h2>{{ item.info }}</h2>
+            </router-link>
           </div>
         </div>
       </div>
@@ -37,10 +43,37 @@
 </template>
 
 <script>
+import globalMixin from "../common/globalMixin";
 export default {
   name: "services",
+  mixins: [globalMixin],
   data() {
-    return {};
+    return {
+      allWork: globalMixin.allWork,
+      loaded: false,
+      offsetImgHeight: 0
+    };
+  },
+  mounted() {
+    let checkImageOffsetHeight = document.getElementById("work-img-display")
+      .offsetHeight;
+
+    let checkWindowInnerWidth = window.innerWidth;
+
+    if (checkImageOffsetHeight > 400) {
+      this.offsetImgHeight = checkImageOffsetHeight;
+    } else if (checkWindowInnerWidth > 1500) {
+      this.offsetImgHeight = 500;
+    } else if (checkWindowInnerWidth > 1200) {
+      this.offsetImgHeight = 400;
+    } else {
+      this.offsetImgHeight = 250;
+    }
+  },
+  methods: {
+    isImgLoaded() {
+      this.loaded = true;
+    }
   }
 };
 </script>
@@ -70,10 +103,12 @@ export default {
   }
   .work-examples {
     .work-examples-wrapper {
-      margin-left: -100px;
-      margin-right: -100px;
       .work-card {
         padding: 0px;
+        margin-bottom: 20px;
+        @media (min-width: 768px) {
+          margin-bottom: 0px;
+        }
         img {
           background-color: #595959;
           width: 100%;
@@ -88,15 +123,45 @@ export default {
           @media (min-width: 768px) {
             padding: 45px 100px 70px;
           }
+          a {
+            color: #000;
+            &:hover {
+              h1 {
+                color: rgb(122, 122, 122);
+              }
+            }
+          }
           h1 {
-            font-size: 46px;
-            padding-bottom: 12px;
-            margin: 0px;
+            font-size: 30px;
+            transition: all 0.3s ease-in-out 0s;
+            margin: 20px 0px 0px 0px;
             letter-spacing: -1px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            @media (min-width: 768px) {
+              font-size: 36px;
+              padding-bottom: 12px;
+              padding-left: 0px;
+              margin: 0px;
+            }
+            @media (min-width: 1200px) {
+              font-size: 46px;
+            }
           }
           h2 {
-            font-size: 18px;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 20px;
             color: #737373;
+            padding-left: 10px;
+            @media (min-width: 768px) {
+              width: 70%;
+              padding-left: 0px;
+            }
+            @media (min-width: 900px) {
+              font-size: 1.125rem;
+              width: 50%;
+            }
           }
         }
       }

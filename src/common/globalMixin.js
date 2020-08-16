@@ -4,6 +4,8 @@ const backgroundUrl = productData.backgroundUrl;
 const russianBearProducts = productData.russianBearProducts;
 const glenfiddichProducts = productData.glenfiddichProducts;
 const rockingTheDaisiesProducts = productData.rockingTheDaisies;
+const mountVernonProducts = productData.mountVernon;
+const allWork = productData.allWork;
 
 function getBackgroundUrl(id) {
   let background = backgroundUrl.find(item => item.id === id);
@@ -20,5 +22,7 @@ export default {
   getProductBackgroundById,
   russianBearProducts,
   glenfiddichProducts,
-  rockingTheDaisiesProducts
+  rockingTheDaisiesProducts,
+  mountVernonProducts,
+  allWork
 };

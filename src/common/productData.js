@@ -97,3 +97,64 @@ export const rockingTheDaisies = [
       "https://api.platinumseed.com/wp-content/uploads/2017/08/Work_RTD_2.jpg"
   }
 ];
+
+export const mountVernon = [
+  {
+    id: 1,
+    header: "BRAND STORY",
+    infoText:
+      "The brand has a rich story and is rooted in strong family values which are expressed across the site. ",
+    img: "https://api.platinumseed.com/wp-content/uploads/2016/03/ipad.jpg"
+  },
+  {
+    id: 2,
+    header: "RESPONSIV EXPERIENCE",
+    infoText:
+      "The new MountVernon.co.za provides a fully responsive experience that is device agnostic.",
+    img:
+      "https://api.platinumseed.com/wp-content/uploads/2016/03/02-Carousel-2.jpg"
+  },
+  {
+    id: 3,
+    header: "MULTIPLE PATHS TO PURCHASE",
+    infoText:
+      "Commerce is facilitated at any point in the user journey, from content consumption, product discovery to a dedicated online store.",
+    img:
+      "https://api.platinumseed.com/wp-content/uploads/2016/03/01-Carousel-2.jpg"
+  }
+];
+
+export const allWork = [
+  {
+    id: 1,
+    name: "Russian Bear",
+    info: "Integrated Digital Campaign",
+    imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2017/08/RussianBear_WorkList_Static-1.jpg",
+    route: "/russian-bear"
+  },
+  {
+    id: 2,
+    name: "Glenfiddich Whisky",
+    info: "Experiential",
+    imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2017/08/Glenfiddich_WorkList_Static.jpg",
+    route: "/glenfiddich"
+  },
+  {
+    id: 3,
+    name: "Rocking the Daisies",
+    info: "Social Media",
+    imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2017/08/RTD_WorkList_Static.jpg",
+    route: "/rocking-the-daisies"
+  },
+  {
+    id: 4,
+    name: "Mount Vernon",
+    info: "E-Commerce",
+    imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2017/08/MountV_WorkList_Static.jpg",
+    route: "/mount-vernon"
+  }
+];

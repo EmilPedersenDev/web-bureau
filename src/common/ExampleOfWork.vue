@@ -1,10 +1,10 @@
 <template>
-  <div class="container-work">
+  <div class="container-service-pages">
     <section id="head">
       <div class="header-text">
         <slot name="main-header-text"></slot>
       </div>
-      <div class="img-banner">
+      <div class="img-banner img-wrapper-mobile-compatible">
         <slot name="main-img"></slot>
       </div>
     </section>
@@ -21,7 +21,7 @@
       <div class="product-wrapper">
         <h1 class="header">{{ product.header }}</h1>
         <p>{{ product.infoText }}</p>
-        <div class="img-wrapper">
+        <div class="img-wrapper img-wrapper-mobile-compatible">
           <img
             v-show="loaded"
             :src="product.img"
@@ -67,11 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container-work {
-  @media (min-width: 768px) {
-    padding: 45px 100px;
-  }
-  color: black;
+.container-service-pages {
   .header-text {
     h1 {
       margin-top: 20px;
@@ -90,10 +86,6 @@ export default {
   }
   .img-banner {
     padding: 0;
-    @media (min-width: 768px) {
-      margin-left: -100px;
-      margin-right: -100px;
-    }
     img {
       width: 100%;
     }
@@ -120,8 +112,6 @@ export default {
     }
 
     .img-wrapper {
-      margin-left: -100px;
-      margin-right: -100px;
       img {
         width: 100%;
       }

@@ -1,18 +1,17 @@
 <template>
   <example-of-work :products="products" :screenHeight="screenHeight">
     <template slot="main-header-text">
-      <h3 class="eyebrow">Case study</h3>
-      <h1 class="big-header main-header-mobile-text">Russian Bear</h1>
+      <h3 class="eyebrow">Brand Website</h3>
+      <h1 class="big-header main-header-mobile-text">Mount Vernon</h1>
       <h2>
-        Introducing the <em>#IAmNextSessions</em>, a search for South Africa’s
-        next big rapper.
+        Experience the luxury and craft of a vineyard, rich in history.
       </h2></template
     >
     <template slot="main-img">
       <img
         v-show="loaded"
-        src="https://api.platinumseed.com/wp-content/uploads/2017/08/Work_RussianBear_Cover-1800x1022.jpg"
-        alt="South African young rapper"
+        src="https://api.platinumseed.com/wp-content/uploads/2016/02/01-Slide-Image-1800x1022.jpg"
+        alt="Mount Vernon House"
         @load="isImgLoaded"
       />
       <spinner
@@ -25,18 +24,15 @@
       <div class="row">
         <h1 class="information col-12 col-xl-2">Info</h1>
         <p class="text col-12 col-xl-8 inside-text-content">
-          2017 saw the launch of the Russian Bear #IAmNextSessions, where
-          hopeful rappers compete for a chance to win a recording deal with
-          South African rap star Kwesta. A through-the-line campaign,
-          #IAmNextSessions incorporated a number of touch points, including a
-          mobile recording studio, which traveled around South Africa to find
-          SA’s next hip-hop superstar. Ultimately, we conceptualised a digital
-          strategy suited to the Russian Bear consumer, whose behaviour differs
-          substantially from those consumers within the premium alcohol market.
-          <br />
+          Mount Vernon is a family owned winery nestled at the foot of the fold
+          mountains just outside of Stellenbosch in the Cape. The wine maker
+          create wines with extreme attention to detail and is committed to
+          excellence in his craft. The new online home for Mount Vernon is an
+          eCommerce platform that tells the story of the brand and showcases the
+          values of the brand through the wine they create.
         </p>
         <p class="type col-12 col-xl-2 inside-text-content eyebrow">
-          Cms, Development
+          SaS, Development
         </p>
       </div>
     </template>
@@ -49,7 +45,7 @@ export default {
   mixins: [globalMixin],
   data() {
     return {
-      products: globalMixin.russianBearProducts,
+      products: globalMixin.mountVernonProducts,
       loaded: false,
       screenHeight: 0
     };
