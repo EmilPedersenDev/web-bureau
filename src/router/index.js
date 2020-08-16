@@ -25,6 +25,16 @@ const routes = [
     name: "Glenfiddich",
     props: true,
     component: () => import("../views/Glenfiddich.vue")
+  },
+  {
+    path: "/rocking-the-daisies",
+    name: "RockingTheDaisies",
+    component: () => import("../views/RockingTheDaisies.vue")
+  },
+  {
+    path: "/services",
+    name: "Services",
+    component: () => import("../views/Services.vue")
   }
 ];
 

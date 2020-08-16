@@ -1,5 +1,5 @@
 <template>
-  <example-of-work>
+  <example-of-work :products="products" :screenHeight="screenHeight">
     <template slot="main-header-text">
       <h3 class="eyebrow">Case study</h3>
       <h1 class="big-header main-header-mobile-text">Russian Bear</h1>
@@ -40,25 +40,6 @@
         <p class="type col-12 col-xl-2 inside-text-content eyebrow">
           Cms, Development
         </p>
-      </div>
-    </template>
-    <template slot="product-wrapper" v-for="(product, id) in products">
-      <div class="product-wrapper" :key="id">
-        <h1 class="header">{{ product.header }}</h1>
-        <p>{{ product.infoText }}</p>
-        <div class="img-wrapper">
-          <img
-            v-show="loaded"
-            :src="product.img"
-            alt="example of work with products"
-            @load="isImgLoaded"
-          />
-          <spinner
-            v-show="!loaded"
-            :loaded="loaded"
-            :screenHeight="screenHeight"
-          ></spinner>
-        </div>
       </div>
     </template>
   </example-of-work>

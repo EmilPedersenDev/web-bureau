@@ -13,8 +13,16 @@
       :style="getBackgroundUrl"
       v-show="loaded"
     >
-      <slot name="background-text"></slot>
-      <slot name="router-link-bank"></slot>
+      <div class="hero-text" slot="background-text">
+        <h1 class="main-header-mobile-text">{{ backgroundObj.title }}</h1>
+        <h2>{{ backgroundObj.subTitle }}</h2>
+        <router-link
+          slot="router-link-bank"
+          :to="backgroundObj.route"
+          class="top-link"
+          >{{ routerLinkText }}
+        </router-link>
+      </div>
     </div>
   </banner>
 </template>
@@ -25,6 +33,12 @@ export default {
   props: {
     backgroundUrl: {
       type: Object
+    },
+    backgroundObj: {
+      type: Object
+    },
+    routerLinkText: {
+      Type: String
     },
     section: {
       type: String
@@ -77,6 +91,11 @@ export default {
 <style lang="scss" scoped>
 .background {
   animation: fadein 2s;
+
+  .hero-text {
+    justify-content: flex-end;
+    padding-bottom: 40px;
+  }
 
   &.slide-2 {
     z-index: 6;

@@ -1,22 +1,25 @@
 <template>
   <div class="home">
-    <advertising-banner :backgroundUrl="setBackgroundImg(2)" section="slide-2">
-      <div class="hero-text" slot="background-text">
-        <h1 class="main-header-mobile-text">Russian Bear</h1>
-        <h2>An Integrated Digital Campaign for Russian Bear.</h2>
-        <router-link slot="router-link-bank" to="/russian-bear" class="top-link"
-          >{{ routerLinkText }}
-        </router-link>
-      </div>
+    <advertising-banner
+      :backgroundUrl="setBackgroundImg(2)"
+      section="slide-2"
+      :routerLinkText="routerLinkText"
+      :backgroundObj="setBackgroundObject(2)"
+    >
     </advertising-banner>
-    <advertising-banner :backgroundUrl="setBackgroundImg(3)" section="slide-3">
-      <div class="hero-text" slot="background-text">
-        <h1 class="main-header-mobile-text">Voice Visualiser</h1>
-        <h2>We created an experiential activation for Glenfiddich Whisky.</h2>
-        <router-link slot="router-link-bank" to="/glenfiddich" class="top-link"
-          >{{ routerLinkText }}
-        </router-link>
-      </div>
+    <advertising-banner
+      :backgroundUrl="setBackgroundImg(3)"
+      section="slide-3"
+      :routerLinkText="routerLinkText"
+      :backgroundObj="setBackgroundObject(3)"
+    >
+    </advertising-banner>
+    <advertising-banner
+      :backgroundUrl="setBackgroundImg(4)"
+      section="slide-4"
+      :routerLinkText="routerLinkText"
+      :backgroundObj="setBackgroundObject(4)"
+    >
     </advertising-banner>
     <inspire-banner
       right-text
@@ -71,6 +74,9 @@ export default {
   methods: {
     setBackgroundImg(id) {
       return globalMixin.getBackgroundUrl(id);
+    },
+    setBackgroundObject(id) {
+      return globalMixin.getProductBackgroundById(id);
     }
   }
 };

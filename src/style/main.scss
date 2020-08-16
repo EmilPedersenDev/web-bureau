@@ -57,6 +57,20 @@ a {
   }
 }
 
+.container-service-pages {
+  color: #000;
+
+  @media (min-width: 576px) {
+    padding: 45px 50px;
+  }
+  @media (max-width: 575px) {
+    padding: 45px 33px;
+  }
+  @media (min-width: 768px) {
+    padding: 45px 100px;
+  }
+}
+
 .background {
   background-position: center center;
   background-repeat: no-repeat;

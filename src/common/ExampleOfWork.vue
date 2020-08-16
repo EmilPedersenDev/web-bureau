@@ -13,8 +13,28 @@
         <slot name="description-text"></slot>
       </div>
     </section>
-    <section id="product-description">
-      <slot name="product-wrapper"></slot>
+    <section
+      id="product-description"
+      v-for="(product, id) in products"
+      :key="id"
+    >
+      <div class="product-wrapper">
+        <h1 class="header">{{ product.header }}</h1>
+        <p>{{ product.infoText }}</p>
+        <div class="img-wrapper">
+          <img
+            v-show="loaded"
+            :src="product.img"
+            alt="example of work with products"
+            @load="isImgLoaded"
+          />
+          <spinner
+            v-show="!loaded"
+            :loaded="loaded"
+            :screenHeight="screenHeight"
+          ></spinner>
+        </div>
+      </div>
     </section>
   </div>
 </template>
@@ -25,6 +45,22 @@ export default {
   props: {
     id: {
       type: Number
+    },
+    products: {
+      type: Array
+    },
+    screenHeight: {
+      type: Number
+    }
+  },
+  data() {
+    return {
+      loaded: false
+    };
+  },
+  methods: {
+    isImgLoaded() {
+      this.loaded = true;
     }
   }
 };
