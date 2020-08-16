@@ -17,6 +17,11 @@
           :key="id"
           id="work-img-display"
         >
+          <spinner
+            v-show="!loaded"
+            :loaded="loaded"
+            :screenHeight="offsetImgHeight"
+          ></spinner>
           <router-link :to="item.route">
             <img
               :src="item.imgUrl"
@@ -24,18 +29,11 @@
               v-show="loaded"
               @load="isImgLoaded"
             />
-          </router-link>
-          <spinner
-            v-show="!loaded"
-            :loaded="loaded"
-            :screenHeight="offsetImgHeight"
-          ></spinner>
-          <div class="work-card-info">
-            <router-link :to="item.route">
+            <div class="work-card-info">
               <h1>{{ item.name }}</h1>
               <h2>{{ item.info }}</h2>
-            </router-link>
-          </div>
+            </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -106,31 +104,32 @@ export default {
       .work-card {
         padding: 0px;
         margin-bottom: 20px;
+        transition: all ease-in-out 0.3s;
         @media (min-width: 768px) {
           margin-bottom: 0px;
+        }
+        &:hover {
+          opacity: 0.7;
+          cursor: pointer;
         }
         img {
           background-color: #595959;
           width: 100%;
           padding: 0px;
-          transition: all ease-in-out 0.3s;
+        }
+        a {
+          color: #000;
           &:hover {
-            opacity: 0.7;
-            cursor: pointer;
+            h1 {
+              color: rgb(122, 122, 122);
+            }
           }
         }
         .work-card-info {
           @media (min-width: 768px) {
             padding: 45px 100px 70px;
           }
-          a {
-            color: #000;
-            &:hover {
-              h1 {
-                color: rgb(122, 122, 122);
-              }
-            }
-          }
+
           h1 {
             font-size: 30px;
             transition: all 0.3s ease-in-out 0s;

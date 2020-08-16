@@ -2,10 +2,26 @@
   <div class="container-service-pages">
     <section id="head">
       <div class="header-text">
-        <slot name="main-header-text"></slot>
+        <h3 class="eyebrow">{{ exampleWork.type }}</h3>
+        <h1 class="big-header main-header-mobile-text">
+          {{ exampleWork.name }}
+        </h1>
+        <h2>
+          {{ exampleWork.bodyText }}
+        </h2>
       </div>
       <div class="img-banner img-wrapper-mobile-compatible">
-        <slot name="main-img"></slot>
+        <img
+          v-show="loaded"
+          :src="exampleWork.imgUrl"
+          alt="South African young rapper"
+          @load="isImgLoaded"
+        />
+        <spinner
+          v-show="!loaded"
+          :loaded="loaded"
+          :screenHeight="screenHeight"
+        ></spinner>
       </div>
     </section>
     <section id="description">
@@ -46,21 +62,34 @@ export default {
     id: {
       type: Number
     },
+    exampleWork: {
+      type: Object
+    },
     products: {
       type: Array
-    },
-    screenHeight: {
-      type: Number
     }
   },
   data() {
     return {
-      loaded: false
+      loaded: false,
+      screenHeight: 0
     };
+  },
+  mounted() {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth"
+    });
+    this.screenHeight = window.innerHeight;
+
+    window.addEventListener("resize", this.onResize);
   },
   methods: {
     isImgLoaded() {
       this.loaded = true;
+    },
+    onResize() {
+      this.screenHeight = window.innerHeight;
     }
   }
 };
