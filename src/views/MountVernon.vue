@@ -1,25 +1,5 @@
 <template>
-  <example-of-work :products="products" :screenHeight="screenHeight">
-    <template slot="main-header-text">
-      <h3 class="eyebrow">Brand Website</h3>
-      <h1 class="big-header main-header-mobile-text">Mount Vernon</h1>
-      <h2>
-        Experience the luxury and craft of a vineyard, rich in history.
-      </h2></template
-    >
-    <template slot="main-img">
-      <img
-        v-show="loaded"
-        src="https://api.platinumseed.com/wp-content/uploads/2016/02/01-Slide-Image-1800x1022.jpg"
-        alt="Mount Vernon House"
-        @load="isImgLoaded"
-      />
-      <spinner
-        v-show="!loaded"
-        :loaded="loaded"
-        :screenHeight="screenHeight"
-      ></spinner>
-    </template>
+  <example-of-work :products="products" :exampleWork="exampleWork">
     <template slot="description-text">
       <div class="row">
         <h1 class="information col-12 col-xl-2">Info</h1>
@@ -46,27 +26,8 @@ export default {
   data() {
     return {
       products: globalMixin.mountVernonProducts,
-      loaded: false,
-      screenHeight: 0
+      exampleWork: globalMixin.getExampleWork(4)
     };
-  },
-
-  mounted() {
-    window.scrollTo({
-      top: 0,
-      behaviour: "smooth"
-    });
-    this.screenHeight = window.innerHeight;
-
-    window.addEventListener("resize", this.onResize);
-  },
-  methods: {
-    isImgLoaded() {
-      this.loaded = true;
-    },
-    onResize() {
-      this.screenHeight = window.innerHeight;
-    }
   }
 };
 </script>

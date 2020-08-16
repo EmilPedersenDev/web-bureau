@@ -28,6 +28,50 @@ export const backgroundUrl = [
   }
 ];
 
+export const allWork = [
+  {
+    id: 1,
+    type: "Case study",
+    name: "Russian Bear",
+    info: "Integrated Digital Campaign",
+    bodyText:
+      "Introducing the #IAmNextSessions, a search for South Africa's next big rapper.",
+    imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2017/08/Work_RussianBear_Cover-1800x1022.jpg",
+    route: "/russian-bear"
+  },
+  {
+    id: 2,
+    type: "Case study",
+    name: "Glenfiddich Whisky",
+    info: "Experiential",
+    bodyText: "Using biometric technology to create unique whisky cocktails.",
+    imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2017/08/Work_Glenfiddich_Cover-1800x1022.jpg",
+    route: "/glenfiddich"
+  },
+  {
+    id: 3,
+    type: "Content Creation",
+    name: "Rocking the Daisies",
+    info: "Social Media",
+    bodyText: "Building brand advocacy and user-generated content.",
+    imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2017/08/Work_RTD_Cover-1800x1022.jpg",
+    route: "/rocking-the-daisies"
+  },
+  {
+    id: 4,
+    type: "Case study",
+    name: "Mount Vernon",
+    info: "E-Commerce",
+    bodyText: "Experience the luxury and craft of a vineyard, rich in history.",
+    imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2016/02/01-Slide-Image-1800x1022.jpg",
+    route: "/mount-vernon"
+  }
+];
+
 export const russianBearProducts = [
   {
     id: 1,
@@ -81,7 +125,7 @@ export const glenfiddichProducts = [
   }
 ];
 
-export const rockingTheDaisies = [
+export const rockingTheDaisiesProducts = [
   {
     id: 1,
     header: "CONTENT CREATION",
@@ -98,7 +142,7 @@ export const rockingTheDaisies = [
   }
 ];
 
-export const mountVernon = [
+export const mountVernonProducts = [
   {
     id: 1,
     header: "BRAND STORY",
@@ -121,40 +165,5 @@ export const mountVernon = [
       "Commerce is facilitated at any point in the user journey, from content consumption, product discovery to a dedicated online store.",
     img:
       "https://api.platinumseed.com/wp-content/uploads/2016/03/01-Carousel-2.jpg"
-  }
-];
-
-export const allWork = [
-  {
-    id: 1,
-    name: "Russian Bear",
-    info: "Integrated Digital Campaign",
-    imgUrl:
-      "https://api.platinumseed.com/wp-content/uploads/2017/08/RussianBear_WorkList_Static-1.jpg",
-    route: "/russian-bear"
-  },
-  {
-    id: 2,
-    name: "Glenfiddich Whisky",
-    info: "Experiential",
-    imgUrl:
-      "https://api.platinumseed.com/wp-content/uploads/2017/08/Glenfiddich_WorkList_Static.jpg",
-    route: "/glenfiddich"
-  },
-  {
-    id: 3,
-    name: "Rocking the Daisies",
-    info: "Social Media",
-    imgUrl:
-      "https://api.platinumseed.com/wp-content/uploads/2017/08/RTD_WorkList_Static.jpg",
-    route: "/rocking-the-daisies"
-  },
-  {
-    id: 4,
-    name: "Mount Vernon",
-    info: "E-Commerce",
-    imgUrl:
-      "https://api.platinumseed.com/wp-content/uploads/2017/08/MountV_WorkList_Static.jpg",
-    route: "/mount-vernon"
   }
 ];
