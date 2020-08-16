@@ -26,7 +26,7 @@
     <div class="right-nav col-10 col-md-8">
       <ul>
         <li class="no-mobile-view">
-          <router-link :class="classList" to="/about">Services</router-link>
+          <router-link :class="classList" to="/services">Services</router-link>
         </li>
         <li class="no-mobile-view">
           <router-link :class="classList" to="/">About Us</router-link>
@@ -54,7 +54,7 @@
 
       <ul>
         <li @click="toggle">
-          <router-link :class="classList" to="/about">Services</router-link>
+          <router-link :class="classList" to="/services">Services</router-link>
         </li>
         <li @click="toggle">
           <router-link :class="classList" to="/">About Us</router-link>
