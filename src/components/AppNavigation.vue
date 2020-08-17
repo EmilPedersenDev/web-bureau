@@ -26,13 +26,13 @@
     <div class="right-nav col-10 col-md-8">
       <ul>
         <li class="no-mobile-view">
-          <router-link :class="classList" to="/services">Services</router-link>
+          <router-link :class="classList" to="/services">Our Work</router-link>
         </li>
         <li class="no-mobile-view">
           <router-link :class="classList" to="/">About Us</router-link>
         </li>
         <li class="no-mobile-view">
-          <router-link :class="classList" to="/">Contact</router-link>
+          <router-link :class="classList" to="/contact">Contact</router-link>
         </li>
         <li class="no-desktop-view">
           <i
@@ -54,13 +54,13 @@
 
       <ul>
         <li @click="toggle">
-          <router-link :class="classList" to="/services">Services</router-link>
+          <router-link :class="classList" to="/services">Our Work</router-link>
         </li>
         <li @click="toggle">
-          <router-link :class="classList" to="/">About Us</router-link>
+          <router-link :class="classList" to="/about">About Us</router-link>
         </li>
         <li @click="toggle">
-          <router-link :class="classList" to="/">Contact</router-link>
+          <router-link :class="classList" to="/contact">Contact</router-link>
         </li>
       </ul>
     </div>
@@ -70,12 +70,6 @@
 <script>
 export default {
   name: "app-navigation",
-  props: {
-    isStartSite: {
-      type: Boolean,
-      default: false
-    }
-  },
   data() {
     return {
       loaded: false,
@@ -104,7 +98,7 @@ export default {
       ];
     },
     isHomePage() {
-      return this.$route.path === "/";
+      return this.$route.path === "/" || this.$route.path == "/contact";
     },
     menuHeight() {
       if (this.isToggled) {

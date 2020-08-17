@@ -53,6 +53,10 @@ export default {
     };
   },
   mounted() {
+    window.scrollTo({
+      top: 0,
+      behaviour: "smooth"
+    });
     let checkImageOffsetHeight = document.getElementById("work-img-display")
       .offsetHeight;
 

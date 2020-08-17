@@ -40,6 +40,11 @@ const routes = [
     path: "/mount-vernon",
     name: "MountVernon",
     component: () => import("../views/MountVernon.vue")
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: () => import("../views/Contact.vue")
   }
 ];
 

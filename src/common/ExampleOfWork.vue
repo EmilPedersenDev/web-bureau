@@ -1,47 +1,21 @@
 <template>
-  <div class="container-service-pages">
-    <section id="head">
-      <div class="header-text">
-        <h3 class="eyebrow">{{ exampleWork.type }}</h3>
-        <h1 class="big-header main-header-mobile-text">
-          {{ exampleWork.name }}
-        </h1>
-        <h2>
-          {{ exampleWork.bodyText }}
-        </h2>
-      </div>
-      <div class="img-banner img-wrapper-mobile-compatible">
-        <img
-          v-show="loaded"
-          :src="exampleWork.imgUrl"
-          alt="South African young rapper"
-          @load="isImgLoaded"
-        />
-        <spinner
-          v-show="!loaded"
-          :loaded="loaded"
-          :screenHeight="screenHeight"
-        ></spinner>
-      </div>
-    </section>
-    <section id="description">
-      <div class="description-text">
-        <slot name="description-text"></slot>
-      </div>
-    </section>
-    <section
-      id="product-description"
-      v-for="(product, id) in products"
-      :key="id"
-    >
-      <div class="product-wrapper">
-        <h1 class="header">{{ product.header }}</h1>
-        <p>{{ product.infoText }}</p>
-        <div class="img-wrapper img-wrapper-mobile-compatible">
+  <div>
+    <div class="container-service-pages">
+      <section id="head">
+        <div class="header-text">
+          <h3 class="eyebrow">{{ exampleWork.type }}</h3>
+          <h1 class="big-header main-header-mobile-text">
+            {{ exampleWork.name }}
+          </h1>
+          <h2>
+            {{ exampleWork.bodyText }}
+          </h2>
+        </div>
+        <div class="img-banner img-wrapper-mobile-compatible">
           <img
             v-show="loaded"
-            :src="product.img"
-            alt="example of work with products"
+            :src="exampleWork.imgUrl"
+            alt="South African young rapper"
             @load="isImgLoaded"
           />
           <spinner
@@ -50,8 +24,54 @@
             :screenHeight="screenHeight"
           ></spinner>
         </div>
-      </div>
-    </section>
+      </section>
+      <section id="description">
+        <div class="description-text">
+          <slot name="description-text"></slot>
+        </div>
+      </section>
+      <section
+        id="product-description"
+        v-for="(product, id) in products"
+        :key="id"
+      >
+        <div class="product-wrapper">
+          <h1 class="header">{{ product.header }}</h1>
+          <p>{{ product.infoText }}</p>
+          <div class="img-wrapper img-wrapper-mobile-compatible">
+            <img
+              v-show="loaded"
+              :src="product.img"
+              alt="example of work with products"
+              @load="isImgLoaded"
+            />
+            <spinner
+              v-show="!loaded"
+              :loaded="loaded"
+              :screenHeight="screenHeight"
+            ></spinner>
+          </div>
+        </div>
+      </section>
+    </div>
+    <inspire-banner wholePageText background>
+      <p slot="eyebrow" class="eyebrow">INNOVATION BY DESIGN</p>
+      <h1 slot="header">SET UP A 30 MIN MEETING</h1>
+      <p slot="body-text-main" class="inside-text-content half-page-text">
+        Set up a call with one of our creative directors to discover how you can
+        leverage design to enhance the launch of your products.
+      </p>
+      <app-button
+        class="contact-button"
+        medium
+        primary
+        isContact
+        slot="footer-button"
+        @click="goToContact"
+      >
+        Contact Us
+      </app-button>
+    </inspire-banner>
   </div>
 </template>
 
@@ -90,6 +110,9 @@ export default {
     },
     onResize() {
       this.screenHeight = window.innerHeight;
+    },
+    goToContact() {
+      this.$router.push("/contact");
     }
   }
 };
@@ -97,6 +120,7 @@ export default {
 
 <style lang="scss" scoped>
 .container-service-pages {
+  padding-bottom: 0px;
   .header-text {
     h1 {
       margin-top: 20px;
@@ -133,16 +157,27 @@ export default {
       }
     }
   }
-
-  .product-wrapper {
+  #product-description {
     margin-bottom: 70px;
-    h1 {
-      margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 0px;
     }
+    .product-wrapper {
+      h1 {
+        margin-bottom: 10px;
+        letter-spacing: 4px;
+        &.header {
+          font-size: 1.25rem;
+        }
+      }
+      p {
+        margin-bottom: 15px;
+      }
 
-    .img-wrapper {
-      img {
-        width: 100%;
+      .img-wrapper {
+        img {
+          width: 100%;
+        }
       }
     }
   }

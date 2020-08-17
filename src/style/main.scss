@@ -19,6 +19,9 @@ h1 {
     font-size: 4.375rem;
     margin-top: 70px;
   }
+  &.information {
+    letter-spacing: 4px;
+  }
 }
 
 ul {
@@ -104,6 +107,29 @@ a {
   }
 }
 
+.arrow-scroll-down {
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
+  .arrow {
+    animation: bounce 2s infinite;
+    font-size: 30px;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .hero-text {
   @media (max-width: 768px) {
     margin: 0;
@@ -121,16 +147,42 @@ a {
     font-size: 4.375rem;
     font-weight: 800;
     margin-top: 70px;
+    &.no-margin {
+      margin-top: 0px;
+    }
   }
   h2 {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 400;
     margin-bottom: 20px;
+    line-height: 1;
+    width: 321px;
+
     @media (min-width: 768px) {
+      line-height: 2;
       width: 70%;
     }
     @media (min-width: 900px) {
       width: 50%;
     }
+    @media (min-width: 1400px) {
+      width: 40%;
+    }
+  }
+}
+
+.eyebrow-main-text {
+  position: relative;
+  padding-left: 60px;
+  letter-spacing: 0.2em;
+  &::before {
+    content: "";
+    background: #fff;
+    width: 40px;
+    height: 2px;
+    transform: translate(0, -50%);
+    position: absolute;
+    left: 0;
+    top: 50%;
   }
 }

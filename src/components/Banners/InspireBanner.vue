@@ -15,10 +15,7 @@
           class="inside-img left-inside-img dynamic-placement-content"
           v-if="leftImg"
         >
-          <img
-            src="https://titusklein.com/user/pages/01.home/home-image3.jpg"
-            alt=""
-          />
+          <img :src="imgSrc" alt="" />
         </div>
 
         <div class="left-inside-text dynamic-placement-content" v-if="leftText">
@@ -52,10 +49,7 @@
           class="inside-img right-inside-img dynamic-placement-content"
           v-if="rightImg"
         >
-          <img
-            src="https://titusklein.com/user/pages/01.home/home-image3.jpg"
-            alt=""
-          />
+          <img :src="imgSrc" alt="" />
         </div>
 
         <div

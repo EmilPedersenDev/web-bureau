@@ -12,9 +12,12 @@
     </div>
     <div class="background slide-1" v-show="loaded">
       <div class="hero-text">
+        <p class="eyebrow-main-text">
+          UNIFY
+        </p>
         <h1 class="main-header-mobile-text">
           We are <br />
-          Digital Specialists
+          Digital Specialists.
         </h1>
         <h2>
           We use insight, technology and creativity to keep brands and
@@ -81,28 +84,14 @@ export default {
   .background {
     &.slide-1 {
       animation: fadein 2s;
-    }
-    .arrow-scroll-down {
-      text-align: center;
-      &:hover {
-        cursor: pointer;
-      }
-      .arrow {
-        animation: bounce 2s infinite;
-        font-size: 30px;
-      }
-    }
-  }
+      .hero-text {
+        padding-top: 60px;
 
-  @keyframes bounce {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-    100% {
-      transform: translateY(0);
+        h1 {
+          margin-top: 0px;
+          margin-bottom: 20px;
+        }
+      }
     }
   }
 }

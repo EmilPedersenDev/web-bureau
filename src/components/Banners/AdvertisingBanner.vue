@@ -14,7 +14,12 @@
       v-show="loaded"
     >
       <div class="hero-text" slot="background-text">
-        <h1 class="main-header-mobile-text">{{ backgroundObj.title }}</h1>
+        <p class="eyebrow-main-text">
+          Our Work
+        </p>
+        <h1 class="main-header-mobile-text no-margin">
+          {{ backgroundObj.title }}
+        </h1>
         <h2>{{ backgroundObj.subTitle }}</h2>
         <router-link
           slot="router-link-bank"

@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "st-button",
+  name: "app-button",
 
   props: {
     type: {
@@ -46,16 +46,21 @@ export default {
     block: {
       type: Boolean,
       default: false
+    },
+    isContact: {
+      type: Boolean,
+      default: false
     }
   },
 
   computed: {
     classList: function() {
       return [
-        "st-button",
+        "app-button",
         this.primary && "primary",
         this.large && "lg",
         this.medium && "md",
+        this.isContact && "contact",
         this.block && "block"
       ];
     }
@@ -71,7 +76,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.st-button {
+.app-button {
   background-color: #ffffff;
   transition: background-color 0.3s ease;
   border: none;
@@ -84,7 +89,7 @@ export default {
   font-style: normal;
   font-stretch: normal;
   line-height: 1.71;
-  letter-spacing: normal;
+  letter-spacing: 2px;
   text-align: center;
   color: #4d4845;
 
@@ -110,10 +115,13 @@ export default {
     font-style: normal;
     font-stretch: normal;
     line-height: 1;
-    letter-spacing: normal;
+    letter-spacing: 2px;
     height: 48px;
-    margin-top: 18px;
+    margin-top: 10px;
     padding: 12px 32px;
+    &.contact {
+      margin-top: 30px;
+    }
   }
 
   &.lg {
@@ -138,7 +146,7 @@ export default {
 }
 
 @media (min-width: 768px) {
-  .st-button {
+  .app-button {
     &.sm {
       font-size: 16px;
       font-weight: 600;

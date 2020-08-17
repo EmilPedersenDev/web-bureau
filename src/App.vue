@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <app-navigation
-      :class="{ 'start-nav': isStartSite }"
-      :isStartSite="isStartSite"
+      :class="{ 'start-nav': isFullPageBackground }"
     ></app-navigation>
     <hero-banner v-show="isStartSite"></hero-banner>
     <router-view />
@@ -23,6 +22,9 @@ export default {
     Fotter
   },
   computed: {
+    isFullPageBackground() {
+      return this.$route.path === "/" || this.$route.path === "/contact";
+    },
     isStartSite() {
       return this.$route.path === "/";
     }
