@@ -29,7 +29,7 @@
           <router-link :class="classList" to="/services">Our Work</router-link>
         </li>
         <li class="no-mobile-view">
-          <router-link :class="classList" to="/">About Us</router-link>
+          <router-link :class="classList" to="/about">About Us</router-link>
         </li>
         <li class="no-mobile-view">
           <router-link :class="classList" to="/contact">Contact</router-link>
@@ -98,7 +98,11 @@ export default {
       ];
     },
     isHomePage() {
-      return this.$route.path === "/" || this.$route.path == "/contact";
+      return (
+        this.$route.path === "/" ||
+        this.$route.path == "/contact" ||
+        this.$route.path === "/about"
+      );
     },
     menuHeight() {
       if (this.isToggled) {
@@ -137,7 +141,7 @@ nav {
     z-index: 7;
     padding: 30px;
     color: #000;
-    background-color: #29292e;
+    background-color: #000;
     width: 100%;
     .fa-times {
       color: #fff;

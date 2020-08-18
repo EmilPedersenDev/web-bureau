@@ -3,7 +3,7 @@
     <div class="wrapper row">
       <ul class="personal-links col-12 col-sm-6">
         <li>© 2020 Emil Pedersen</li>
-        <li><a href="#">Contact Us</a></li>
+        <li><router-link to="/contact">Contact Us</router-link></li>
       </ul>
       <ul class="social-links col-12 col-sm-6">
         <li>
@@ -15,7 +15,10 @@
           ></a>
         </li>
         <li>
-          <a href="https://github.com/EmilPedersenDev" target="_blank">
+          <a
+            href="https://github.com/EmilPedersenDev/web-bureau"
+            target="_blank"
+          >
             <i class="fab fa-github-square"></i>
           </a>
         </li>
@@ -32,7 +35,7 @@ export default {
 
 <style lang="scss" scoped>
 .fotter {
-  background: #29292e;
+  background: #fff;
   height: 100px;
   width: 100%;
   .wrapper {
@@ -50,19 +53,40 @@ export default {
       &.social-links {
         display: flex;
         justify-content: flex-end;
+        @media (max-width: 768px) {
+          justify-content: center;
+        }
         li {
           padding-right: 20px;
           text-align: right;
           i {
             font-size: 24px;
+            color: #000;
           }
         }
       }
       &.personal-links {
+        @media (max-width: 768px) {
+          text-align: center;
+        }
         li {
           text-align: left;
           display: inline;
           padding-left: 20px;
+          color: #000;
+          @media (max-width: 360px) {
+            font-size: 14px;
+          }
+          @media (max-width: 768px) {
+            padding-left: 0px;
+            &:last-child {
+              padding-left: 15px;
+            }
+            font-size: 14px;
+          }
+          a {
+            color: #000;
+          }
         }
       }
       li {

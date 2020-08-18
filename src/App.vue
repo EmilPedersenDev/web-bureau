@@ -23,7 +23,11 @@ export default {
   },
   computed: {
     isFullPageBackground() {
-      return this.$route.path === "/" || this.$route.path === "/contact";
+      return (
+        this.$route.path === "/" ||
+        this.$route.path === "/contact" ||
+        this.$route.path === "/about"
+      );
     },
     isStartSite() {
       return this.$route.path === "/";

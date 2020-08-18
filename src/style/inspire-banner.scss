@@ -93,6 +93,13 @@
       max-width: 540px;
     }
   }
+  &.full-page-text {
+    width: 100%;
+    @media (min-width: 1400px) {
+      max-width: 744px;
+      margin: 0 auto;
+    }
+  }
 }
 
 .eyebrow {

@@ -33,7 +33,7 @@
       <inspire-banner wholePageText background>
         <p slot="eyebrow" class="eyebrow">INNOVATION BY DESIGN</p>
         <h1 slot="header">COMPLEXITY</h1>
-        <p slot="body-text-main" class="inside-text-content half-page-text">
+        <p slot="body-text-main" class="inside-text-content full-page-text">
           We intimately understand how daunting the design process can be; we’ve
           worked with innovators of all types and have launched hundreds of
           products. Using our unique innovation-focused design framework, we

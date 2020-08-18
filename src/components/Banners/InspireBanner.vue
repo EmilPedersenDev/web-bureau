@@ -29,7 +29,11 @@
         </div>
       </div>
 
-      <div class="whole-page-text col-md-7" v-if="wholePageText">
+      <div
+        class="whole-page-text"
+        :class="[isWholePageBigger ? 'col-md-8' : 'col-md-7']"
+        v-if="wholePageText"
+      >
         <slot name="eyebrow"> </slot>
 
         <slot name="header"></slot>
@@ -102,6 +106,10 @@ export default {
       default: ""
     },
     background: {
+      type: Boolean,
+      default: false
+    },
+    isWholePageBigger: {
       type: Boolean,
       default: false
     }

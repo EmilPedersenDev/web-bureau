@@ -158,6 +158,10 @@ a {
     line-height: 1;
     width: 321px;
 
+    @media (max-width: 380px) {
+      width: 100%;
+    }
+
     @media (min-width: 768px) {
       line-height: 2;
       width: 70%;
@@ -167,6 +171,9 @@ a {
     }
     @media (min-width: 1400px) {
       width: 40%;
+    }
+    @media (min-width: 1600px) {
+      width: 30%;
     }
   }
 }

@@ -65,11 +65,11 @@ export default {
   mixins: [globalMixin],
   components: {
     AdvertisingBanner,
-    InspireBanner
+    InspireBanner,
   },
   data() {
     return {
-      routerLinkText: "See Our Work"
+      routerLinkText: "See Our Work",
     };
   },
   methods: {
@@ -84,8 +84,8 @@ export default {
     },
     goToOurWork() {
       this.$router.push("/services");
-    }
-  }
+    },
+  },
 };
 </script>
 
