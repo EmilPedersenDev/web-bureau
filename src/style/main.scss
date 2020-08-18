@@ -91,9 +91,11 @@ a {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
   height: 100%;
   width: 100%;
+  @media (min-width: 1200px) {
+    background-attachment: fixed;
+  }
 }
 
 .main-header-mobile-text {
@@ -157,10 +159,6 @@ a {
     margin-bottom: 20px;
     line-height: 1;
     width: 321px;
-
-    @media (max-width: 380px) {
-      width: 100%;
-    }
 
     @media (min-width: 768px) {
       line-height: 2;
