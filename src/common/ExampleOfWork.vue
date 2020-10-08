@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="example-page-container">
     <div class="container-service-pages">
       <section id="head">
         <div class="header-text">
@@ -30,26 +30,44 @@
           <slot name="description-text"></slot>
         </div>
       </section>
+    </div>
+    <div class="container-product-img">
       <section
         id="product-description"
         v-for="(product, id) in products"
         :key="id"
+        :style="determineScreenHeight"
       >
+        <spinner
+          v-show="!loaded"
+          :loaded="loaded"
+          :screenHeight="screenHeight"
+        ></spinner>
         <div class="product-wrapper">
-          <h1 class="header">{{ product.header }}</h1>
-          <p>{{ product.infoText }}</p>
-          <div class="img-wrapper img-wrapper-mobile-compatible">
-            <img
-              v-show="loaded"
-              :src="product.img"
-              alt="example of work with products"
-              @load="isImgLoaded"
-            />
-            <spinner
-              v-show="!loaded"
-              :loaded="loaded"
-              :screenHeight="screenHeight"
-            ></spinner>
+          <div
+            class="background d-none d-md-block"
+            id="background-desktop"
+            v-show="loaded"
+          >
+            <div class="products-info" :style="getBackgroundColor">
+              <p class="eyebrow-main-text">{{ product.header }}</p>
+
+              <p class="no-margin">
+                {{ product.infoText }}
+              </p>
+            </div>
+          </div>
+          <div id="background-mobile" class="d-md-none">
+            <h1 class="header">{{ product.header }}</h1>
+            <p>{{ product.infoText }}</p>
+            <div class="img-wrapper img-wrapper-mobile-compatible">
+              <img
+                v-show="loaded"
+                :src="product.img"
+                alt="example of work with products"
+                @load="isImgLoaded"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -76,31 +94,72 @@
 </template>
 
 <script>
+import { backgroundUrl } from "./productData";
 export default {
   name: "example-of-work",
   props: {
     id: {
-      type: Number
+      type: Number,
     },
     exampleWork: {
-      type: Object
+      type: Object,
     },
     products: {
-      type: Array
-    }
+      type: Array,
+    },
   },
   data() {
     return {
       loaded: false,
-      screenHeight: 0
+      screenHeight: 0,
+      screenWidth: 0,
     };
+  },
+  computed: {
+    determineScreenHeight() {
+      if (this.screenWidth < 768) {
+        return `height: auto`;
+      }
+      return `height: ${this.screenHeight}px`;
+    },
+    getBackgroundColor() {
+      switch (this.id) {
+        case 1:
+          return `background: #74181c;`;
+        case 2:
+          return `background: #412B15;`;
+        case 3:
+          return `background: #2c1850;`;
+        case 4:
+          return `background: #244B12;`;
+
+        default:
+          return `background: #000;`;
+      }
+    },
   },
   mounted() {
     window.scrollTo({
       top: 0,
-      behaviour: "smooth"
+      behaviour: "smooth",
     });
     this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+
+    let backroundElement = document.querySelectorAll("#background-desktop");
+
+    this.loaded = false;
+
+    this.products.forEach((element, i) => {
+      let _this = this;
+      let image = new Image();
+
+      image.onload = () => {
+        _this.loaded = true;
+        backroundElement[i].style.backgroundImage = `url('${element.img}')`;
+      };
+      image.src = element.img;
+    });
 
     window.addEventListener("resize", this.onResize);
   },
@@ -110,76 +169,15 @@ export default {
     },
     onResize() {
       this.screenHeight = window.innerHeight;
+      this.screenWidth = window.innerWidth;
     },
     goToContact() {
       this.$router.push("/contact");
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.container-service-pages {
-  padding-bottom: 0px;
-  .header-text {
-    h1 {
-      margin-top: 20px;
-    }
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 400;
-      margin-bottom: 40px;
-    }
-    h3 {
-      &.eyebrow {
-        font-size: 1.2rem;
-        margin: 0;
-      }
-    }
-  }
-  .img-banner {
-    padding: 0;
-    img {
-      width: 100%;
-    }
-  }
-  .description-text {
-    margin: 70px 0px;
-    .row {
-      .information,
-      .text,
-      .type {
-        margin-bottom: 40px;
-      }
-
-      .type {
-        text-align: right;
-      }
-    }
-  }
-  #product-description {
-    margin-bottom: 70px;
-    &:last-child {
-      margin-bottom: 0px;
-    }
-    .product-wrapper {
-      h1 {
-        margin-bottom: 10px;
-        letter-spacing: 4px;
-        &.header {
-          font-size: 1.25rem;
-        }
-      }
-      p {
-        margin-bottom: 15px;
-      }
-
-      .img-wrapper {
-        img {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
+@import "../style/example-of-work.scss";
 </style>

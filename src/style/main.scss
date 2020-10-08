@@ -159,6 +159,9 @@ a {
     margin-bottom: 20px;
     line-height: 1;
     width: 321px;
+    @media (max-width: 370px) {
+      width: 100%;
+    }
 
     @media (min-width: 768px) {
       line-height: 2;
