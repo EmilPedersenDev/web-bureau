@@ -1,5 +1,5 @@
 <template>
-  <example-of-work :products="products" :exampleWork="exampleWork">
+  <example-of-work :products="products" :exampleWork="exampleWork" :id="4">
     <template slot="description-text">
       <div class="row">
         <h1 class="information col-12 col-xl-2">Info</h1>
@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       products: globalMixin.mountVernonProducts,
-      exampleWork: globalMixin.getExampleWork(4)
+      exampleWork: globalMixin.getExampleWork(4),
     };
-  }
+  },
 };
 </script>

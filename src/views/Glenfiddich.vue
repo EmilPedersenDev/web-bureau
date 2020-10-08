@@ -1,5 +1,5 @@
 <template>
-  <example-of-work :products="products" :exampleWork="exampleWork">
+  <example-of-work :products="products" :exampleWork="exampleWork" :id="2">
     <template slot="description-text">
       <div class="row">
         <h1 class="information col-12 col-xl-2">Info</h1>
@@ -27,8 +27,8 @@ export default {
   data() {
     return {
       products: globalMixin.glenfiddichProducts,
-      exampleWork: globalMixin.getExampleWork(2)
+      exampleWork: globalMixin.getExampleWork(2),
     };
-  }
+  },
 };
 </script>

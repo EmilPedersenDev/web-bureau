@@ -14,9 +14,7 @@
       v-show="loaded"
     >
       <div class="hero-text" slot="background-text">
-        <p class="eyebrow-main-text">
-          Our Work
-        </p>
+        <p class="eyebrow-main-text">Our Work</p>
         <h1 class="main-header-mobile-text no-margin">
           {{ backgroundObj.title }}
         </h1>
@@ -37,28 +35,28 @@ export default {
   name: "advertising-banner",
   props: {
     backgroundUrl: {
-      type: Object
+      type: Object,
     },
     backgroundObj: {
-      type: Object
+      type: Object,
     },
     routerLinkText: {
-      Type: String
+      Type: String,
     },
     section: {
-      type: String
-    }
+      type: String,
+    },
   },
   data() {
     return {
       screenHeight: 0,
-      loaded: false
+      loaded: false,
     };
   },
   watch: {
     screenHeight(val) {
       return val;
-    }
+    },
   },
   mounted() {
     this.screenHeight = window.innerHeight;
@@ -69,7 +67,7 @@ export default {
     var image = new Image();
     let _this = this;
 
-    image.onload = function() {
+    image.onload = function () {
       _this.loaded = true;
       bannerDiv.style.backgroundImage =
         "url('" + _this.backgroundUrl.url + "')";
@@ -83,13 +81,13 @@ export default {
   computed: {
     getBackgroundUrl() {
       return `background-image: url(${this.backgroundUrl})`;
-    }
+    },
   },
   methods: {
     onResize() {
       this.screenHeight = window.innerHeight;
-    }
-  }
+    },
+  },
 };
 </script>
 
