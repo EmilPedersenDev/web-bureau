@@ -2,7 +2,7 @@
   <div class="example-page-container">
     <div class="container-service-pages">
       <section id="head">
-        <div class="header-text">
+        <div class="header-text no-mobile-animation" data-aos="fade-right">
           <h3 class="eyebrow">{{ exampleWork.type }}</h3>
           <h1 class="big-header main-header-mobile-text">
             {{ exampleWork.name }}
@@ -14,7 +14,7 @@
         <div class="img-banner img-wrapper-mobile-compatible">
           <img
             v-show="loaded"
-            :src="exampleWork.imgUrl"
+            :src="exampleWork.background"
             alt="South African young rapper"
             @load="isImgLoaded"
           />
@@ -26,7 +26,7 @@
         </div>
       </section>
       <section id="description">
-        <div class="description-text">
+        <div class="description-text no-mobile-animation" data-aos="fade-up">
           <slot name="description-text"></slot>
         </div>
       </section>

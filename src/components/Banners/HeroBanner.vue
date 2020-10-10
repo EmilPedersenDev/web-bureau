@@ -1,60 +1,69 @@
 <template>
-  <div
-    class="hero-container"
-    :style="`height: ${screenHeight}px`"
-    :class="{ 'loading-background': !loaded }"
-  >
-    <div class="sk-folding-cube" v-show="!loaded">
-      <div class="sk-cube1 sk-cube"></div>
-      <div class="sk-cube2 sk-cube"></div>
-      <div class="sk-cube4 sk-cube"></div>
-      <div class="sk-cube3 sk-cube"></div>
+  <div class="hero-container">
+    <div
+      :style="`height: ${screenHeight}px`"
+      :class="{ 'loading-background': !loaded }"
+      class="background"
+      v-show="loaded"
+    ></div>
+    <div class="hero-text">
+      <p
+        class="eyebrow-main-text no-mobile-animation"
+        data-aos="fade-down"
+        data-aos-duration="3000"
+      >
+        UNIFY
+      </p>
+      <h1
+        class="main-header-mobile-text no-mobile-animation"
+        data-aos="fade-left"
+        data-aos-duration="3000"
+      >
+        We are <br />
+        Digital Specialists.
+      </h1>
+      <h2
+        class="header no-mobile-animation"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        We use insight, technology and creativity to keep brands and businesses
+        relevant in an ever-changing world.
+      </h2>
     </div>
-    <div class="background slide-1" v-show="loaded">
-      <div class="hero-text">
-        <p class="eyebrow-main-text">
-          UNIFY
-        </p>
-        <h1 class="main-header-mobile-text">
-          We are <br />
-          Digital Specialists.
-        </h1>
-        <h2>
-          We use insight, technology and creativity to keep brands and
-          businesses relevant in an ever-changing world.
-        </h2>
-      </div>
-      <div class="arrow-scroll-down">
-        <i class="fas fa-chevron-down arrow" @click="scrollToView"></i>
-      </div>
+    <div class="arrow-scroll-down">
+      <i class="fas fa-chevron-down arrow" @click="scrollToView"></i>
     </div>
+    <spinner
+      v-show="!loaded"
+      :loaded="loaded"
+      :screenHeight="screenHeight"
+    ></spinner>
   </div>
 </template>
 
 <script>
+import globalMixins from "../../common/globalMixin";
 export default {
   name: "hero-banner",
+  mixins: [globalMixins],
   data() {
     return {
       screenHeight: 0,
       loaded: false,
-      backgroundUrl: "https://www.platinumseed.com/img/bg-home-01-large.jpg"
+      backgroundUrl: "https://www.platinumseed.com/img/bg-home-01-large.jpg",
     };
   },
   mounted() {
     this.screenHeight = window.innerHeight;
 
-    let bannerDiv = document.getElementsByClassName("slide-1")[0];
+    let bannerDiv = document.getElementsByClassName("background")[0];
 
     this.loaded = false;
-    var image = new Image();
-    let _this = this;
 
-    image.onload = function() {
-      _this.loaded = true;
-      bannerDiv.style.backgroundImage = "url('" + _this.backgroundUrl + "')";
-    };
-    image.src = this.backgroundUrl;
+    globalMixins.imageOnLoad(bannerDiv, this.backgroundUrl).then((result) => {
+      this.loaded = true;
+    });
 
     this.$nextTick(() => {
       window.addEventListener("resize", this.onResize);
@@ -63,7 +72,7 @@ export default {
   watch: {
     screenHeight(val) {
       return val;
-    }
+    },
   },
   methods: {
     scrollToView() {
@@ -72,26 +81,22 @@ export default {
     },
     onResize() {
       this.screenHeight = window.innerHeight;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .hero-container {
-  color: #fff;
-  width: 100%;
   .background {
-    &.slide-1 {
-      animation: fadein 2s;
-      .hero-text {
-        padding-top: 60px;
-
-        h1 {
-          margin-top: 0px;
-          margin-bottom: 20px;
-        }
-      }
+    animation: fadein 2s;
+    position: relative;
+  }
+  .hero-text {
+    padding-top: 60px;
+    h1 {
+      margin-top: 0px;
+      margin-bottom: 20px;
     }
   }
 }

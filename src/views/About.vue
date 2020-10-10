@@ -6,23 +6,36 @@
       :class="{ 'loading-background': !loaded }"
       class="background"
       v-show="loaded"
-    >
+    ></div>
+    <div class="hero-relative-wrapper">
       <div class="hero-text">
-        <p class="eyebrow-main-text">
+        <p
+          class="eyebrow-main-text no-mobile-animation"
+          data-aos="fade-down"
+          data-aos-duration="3000"
+        >
           ABOUT US
         </p>
-        <h1>
+        <h1
+          class="no-mobile-animation"
+          data-aos="fade-left"
+          data-aos-duration="3000"
+        >
           IMPACT <br />
           BY DESIGN.
         </h1>
-        <h2>
+        <h2
+          class="header no-mobile-animation"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
           Learn how innovative teams like yours leverage design to increase
           revenue, position products, and grow market share.
         </h2>
       </div>
-      <div class="arrow-scroll-down">
-        <i class="fas fa-chevron-down arrow" @click="scrollToView"></i>
-      </div>
+    </div>
+    <div class="arrow-scroll-down">
+      <i class="fas fa-chevron-down arrow" @click="scrollToView"></i>
     </div>
     <spinner
       v-show="!loaded"
@@ -68,8 +81,11 @@
 </template>
 
 <script>
+import globalMixins from "../common/globalMixin";
+
 export default {
   name: "about",
+  mixins: [globalMixins],
   data() {
     return {
       screenHeight: 0,
@@ -84,25 +100,22 @@ export default {
       top: 0,
       behaviour: "smooth",
     });
-    this.screenHeight = window.innerHeight;
 
-    this.$nextTick(() => {
-      window.addEventListener("resize", this.onResize);
-    });
+    this.screenHeight = window.innerHeight;
 
     let backgroundDiv = document.getElementById("background");
 
     this.loaded = false;
-    let image = new Image();
-    let _this = this;
 
-    image.onload = function() {
-      _this.loaded = true;
-      backgroundDiv.style.backgroundImage =
-        "url('" + _this.backgroundUrl + "')";
-    };
+    globalMixins
+      .imageOnLoad(backgroundDiv, this.backgroundUrl)
+      .then((result) => {
+        this.loaded = true;
+      });
 
-    image.src = this.backgroundUrl;
+    this.$nextTick(() => {
+      window.addEventListener("resize", this.onResize);
+    });
   },
 
   methods: {
@@ -127,13 +140,15 @@ export default {
 .container-about {
   .background {
     animation: fadein 2s;
-    .hero-text {
-      padding-top: 60px;
-      h1 {
-        margin-top: 0px;
-        @media (max-width: 768px) {
-          font-size: 40px;
-        }
+    position: relative;
+  }
+
+  .hero-text {
+    padding-top: 60px;
+    h1 {
+      margin-top: 0px;
+      @media (max-width: 768px) {
+        font-size: 40px;
       }
     }
   }
