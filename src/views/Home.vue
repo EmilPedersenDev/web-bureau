@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <hero-banner></hero-banner>
     <advertising-banner
       :backgroundUrl="setBackgroundImg(2)"
       section="slide-2"
@@ -59,6 +60,7 @@
 <script>
 import AdvertisingBanner from "../components/Banners/AdvertisingBanner";
 import InspireBanner from "../components/Banners/InspireBanner";
+import HeroBanner from "../components/Banners/HeroBanner";
 import globalMixin from "../common/globalMixin";
 export default {
   name: "Home",
@@ -66,6 +68,7 @@ export default {
   components: {
     AdvertisingBanner,
     InspireBanner,
+    HeroBanner,
   },
   data() {
     return {

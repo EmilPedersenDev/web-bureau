@@ -6,23 +6,35 @@
       :class="{ 'loading-background': !loaded }"
       class="background"
       v-show="loaded"
-    >
-      <div class="hero-text">
-        <p class="eyebrow-main-text">
-          Contact
-        </p>
-        <h1>
-          HOW <br />
-          TO START.
-        </h1>
-        <h2>
-          Let us help your innovative teams leverage design to commercialize
-          innovations and drive revenue growth.
-        </h2>
-      </div>
-      <div class="arrow-scroll-down">
-        <i class="fas fa-chevron-down arrow" @click="scrollToView"></i>
-      </div>
+    ></div>
+
+    <div class="hero-text">
+      <p
+        class="eyebrow-main-text no-mobile-animation"
+        data-aos="fade-down"
+        data-aos-duration="3000"
+      >
+        Contact
+      </p>
+      <h1
+        class="no-mobile-animation"
+        data-aos="fade-left"
+        data-aos-duration="3000"
+      >
+        HOW <br />
+        TO START.
+      </h1>
+      <h2
+        class="header no-mobile-animation"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        Let us help your innovative teams leverage design to commercialize
+        innovations and drive revenue growth.
+      </h2>
+    </div>
+    <div class="arrow-scroll-down">
+      <i class="fas fa-chevron-down arrow" @click="scrollToView"></i>
     </div>
     <spinner
       v-show="!loaded"
@@ -47,7 +59,7 @@
       class="container-service-pages"
       v-if="!isSubmitted"
     >
-      <div class="row">
+      <div class="row no-mobile-animation" data-aos="fade-right">
         <div class="info-before-form col-12 col-md-6">
           <h1>GET ADVICE</h1>
           <h2>DISCOVER YOUR NEXT STEPS</h2>
@@ -77,7 +89,7 @@
             <div class="row">
               <div class="col-12">
                 <textarea
-                  style="width: 100%; padding: 15px;"
+                  style="width: 100%; padding: 15px"
                   class="input-max"
                   rows="4"
                   cols="50"
@@ -85,9 +97,7 @@
                 />
               </div>
             </div>
-            <app-button medium primary type="submit">
-              Send
-            </app-button>
+            <app-button medium primary type="submit"> Send </app-button>
           </form>
         </div>
       </div>
@@ -102,41 +112,39 @@
 </template>
 
 <script>
+import globalMixins from "../common/globalMixin";
 export default {
   name: "contact",
+  mixins: [globalMixins],
   data() {
     return {
       screenHeight: 0,
       loaded: false,
       backgroundUrl:
         "https://titusklein.com/user/pages/06.contact/contact-hero.jpg",
-      isSubmitted: false
+      isSubmitted: false,
     };
   },
   mounted() {
     window.scrollTo({
       top: 0,
-      behaviour: "smooth"
+      behaviour: "smooth",
     });
     this.screenHeight = window.innerHeight;
-
-    this.$nextTick(() => {
-      window.addEventListener("resize", this.onResize);
-    });
 
     let backgroundDiv = document.getElementById("background");
 
     this.loaded = false;
-    let image = new Image();
-    let _this = this;
 
-    image.onload = function() {
-      _this.loaded = true;
-      backgroundDiv.style.backgroundImage =
-        "url('" + _this.backgroundUrl + "')";
-    };
+    globalMixins
+      .imageOnLoad(backgroundDiv, this.backgroundUrl)
+      .then((result) => {
+        this.loaded = true;
+      });
 
-    image.src = this.backgroundUrl;
+    this.$nextTick(() => {
+      window.addEventListener("resize", this.onResize);
+    });
   },
 
   methods: {
@@ -155,8 +163,8 @@ export default {
     },
     submit() {
       this.isSubmitted = true;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -164,19 +172,19 @@ export default {
 .container-contact {
   .background {
     animation: fadein 2s;
-    .hero-text {
-      height: 93%;
-      padding-top: 60px;
-      h1 {
-        margin-top: 0px;
-        @media (max-width: 768px) {
-          font-size: 40px;
-        }
+    position: relative;
+  }
+  .hero-text {
+    padding-top: 60px;
+    h1 {
+      margin-top: 0px;
+      @media (max-width: 768px) {
+        font-size: 40px;
       }
-      h2 {
-        line-height: 2;
-        font-size: 1rem;
-      }
+    }
+    h2 {
+      line-height: 2;
+      font-size: 1rem;
     }
   }
 

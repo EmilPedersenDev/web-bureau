@@ -5,11 +5,12 @@
       :class="{ 'background-wrapper': background }"
     >
       <div
-        class="left-content"
+        class="left-content no-mobile-animation"
         :class="{
           'col-md-12 col-lg-6': leftImg || leftText,
-          'col-12': wholePageText
+          'col-12': wholePageText,
         }"
+        data-aos="fade-right"
       >
         <div
           class="inside-img left-inside-img dynamic-placement-content"
@@ -30,9 +31,10 @@
       </div>
 
       <div
-        class="whole-page-text"
+        class="whole-page-text no-mobile-animation"
         :class="[isWholePageBigger ? 'col-md-8' : 'col-md-7']"
         v-if="wholePageText"
+        data-aos="fade-right"
       >
         <slot name="eyebrow"> </slot>
 
@@ -44,10 +46,11 @@
       </div>
 
       <div
-        class="right-content"
+        class="right-content no-mobile-animation"
         :class="{
-          'col-md-12 col-lg-6': rightText || rightImg
+          'col-md-12 col-lg-6': rightText || rightImg,
         }"
+        data-aos="fade-right"
       >
         <div
           class="inside-img right-inside-img dynamic-placement-content"
@@ -79,45 +82,45 @@ export default {
   props: {
     leftText: {
       type: Boolean,
-      default: false
+      default: false,
     },
     rightText: {
       type: Boolean,
-      default: false
+      default: false,
     },
     leftImg: {
       type: Boolean,
-      default: false
+      default: false,
     },
     rightImg: {
       type: Boolean,
-      default: false
+      default: false,
     },
     wholePageText: {
       type: Boolean,
-      default: false
+      default: false,
     },
     imgSrc: {
       type: String,
-      default: ""
+      default: "",
     },
     altText: {
       type: String,
-      default: ""
+      default: "",
     },
     background: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isWholePageBigger: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     getBackgroundImg() {
       return `background-image: url(${this.imgSrc})`;
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="fotter">
+  <div class="footer">
     <div class="wrapper row">
       <ul class="personal-links col-12 col-sm-6">
         <li>© 2020 Emil Pedersen</li>
@@ -29,12 +29,12 @@
 
 <script>
 export default {
-  name: "fotter"
+  name: "bigeye-footer",
 };
 </script>
 
 <style lang="scss" scoped>
-.fotter {
+.footer {
   background: #fff;
   height: 100px;
   width: 100%;

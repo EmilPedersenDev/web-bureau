@@ -3,23 +3,22 @@
     <app-navigation
       :class="{ 'start-nav': isFullPageBackground }"
     ></app-navigation>
-    <hero-banner v-show="isStartSite"></hero-banner>
     <router-view />
-    <fotter></fotter>
+    <bigeye-footer></bigeye-footer>
   </div>
 </template>
 
 <script>
 import AppNavigation from "./components/AppNavigation";
 import HeroBanner from "./components/Banners/HeroBanner";
-import Fotter from "./components/Fotter";
+import Footer from "./components/Footer";
 
 export default {
   name: "app",
   components: {
     AppNavigation,
     HeroBanner,
-    Fotter
+    "bigeye-footer": Footer,
   },
   computed: {
     isFullPageBackground() {
@@ -29,10 +28,7 @@ export default {
         this.$route.path === "/about"
       );
     },
-    isStartSite() {
-      return this.$route.path === "/";
-    }
-  }
+  },
 };
 </script>
 

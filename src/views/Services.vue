@@ -1,7 +1,15 @@
 <template>
   <div class="container-service-pages">
-    <h1 class="big-header main-header-mobile-text">Our Work.</h1>
-    <div class="service-info-text row">
+    <h1
+      class="big-header main-header-mobile-text no-mobile-animation"
+      data-aos="fade-right"
+    >
+      Our Work.
+    </h1>
+    <div
+      class="service-info-text row no-mobile-animation"
+      data-aos="fade-right"
+    >
       <h3>Case Studies</h3>
       <h2>
         Our blood, sweat and craft. It begins with an insight and ends with work
@@ -49,13 +57,13 @@ export default {
     return {
       allWork: globalMixin.allWork,
       loaded: false,
-      offsetImgHeight: 0
+      offsetImgHeight: 0,
     };
   },
   mounted() {
     window.scrollTo({
       top: 0,
-      behaviour: "smooth"
+      behaviour: "smooth",
     });
     let checkImageOffsetHeight = document.getElementById("work-img-display")
       .offsetHeight;
@@ -75,8 +83,8 @@ export default {
   methods: {
     isImgLoaded() {
       this.loaded = true;
-    }
-  }
+    },
+  },
 };
 </script>
 

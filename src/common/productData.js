@@ -37,6 +37,8 @@ export const allWork = [
     bodyText:
       "Introducing the #IAmNextSessions, a search for South Africa's next big rapper.",
     imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2017/08/RussianBear_WorkList_Static-1.jpg",
+    background:
       "https://api.platinumseed.com/wp-content/uploads/2017/08/Work_RussianBear_Cover-1800x1022.jpg",
     route: "/russian-bear",
   },
@@ -47,7 +49,10 @@ export const allWork = [
     info: "Experiential",
     bodyText: "Using biometric technology to create unique whisky cocktails.",
     imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2017/08/Glenfiddich_WorkList_Static.jpg",
+    background:
       "https://api.platinumseed.com/wp-content/uploads/2017/08/Work_Glenfiddich_Cover-1800x1022.jpg",
+
     route: "/glenfiddich",
   },
   {
@@ -57,7 +62,10 @@ export const allWork = [
     info: "Social Media",
     bodyText: "Building brand advocacy and user-generated content.",
     imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2017/08/RTD_WorkList_Static.jpg",
+    background:
       "https://api.platinumseed.com/wp-content/uploads/2017/08/Work_RTD_Cover-1800x1022.jpg",
+
     route: "/rocking-the-daisies",
   },
   {
@@ -67,7 +75,10 @@ export const allWork = [
     info: "E-Commerce",
     bodyText: "Experience the luxury and craft of a vineyard, rich in history.",
     imgUrl:
+      "https://api.platinumseed.com/wp-content/uploads/2017/08/MountV_WorkList_Static.jpg",
+    background:
       "https://api.platinumseed.com/wp-content/uploads/2016/02/01-Slide-Image-1800x1022.jpg",
+
     route: "/mount-vernon",
   },
 ];

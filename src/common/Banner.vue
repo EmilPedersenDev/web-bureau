@@ -11,20 +11,20 @@ export default {
     size: {
       type: String,
       default: "md",
-      validator: size => {
+      validator: (size) => {
         return ["sm", "md", "lg", "auto"].includes(size);
-      }
+      },
     },
     section: {
-      type: String
+      type: String,
     },
     screenHeight: {
-      type: Number
+      type: Number,
     },
     loaded: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     classList() {
@@ -32,14 +32,15 @@ export default {
     },
     determineScreenHeight() {
       return `height: ${this.screenHeight}px`;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .banner {
   width: 100%;
+  position: relative;
   &.sm {
     height: 522px;
   }
