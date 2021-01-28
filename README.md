@@ -1,5 +1,11 @@
 # web-bureau-app
 
+### Project description
+Website for a fictional web bureau company.
+
+### Live at
+https://emilpedersendev.github.io/web-bureau/
+
 ## Project setup
 ```
 npm install
@@ -28,5 +34,4 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### Live at
-https://emilpedersendev.github.io/web-bureau/
+
